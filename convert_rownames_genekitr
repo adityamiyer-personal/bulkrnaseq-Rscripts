@@ -1,0 +1,8 @@
+#Convert the rownames of the cts table to a different format, here I am converting it to a gene symbol
+
+cts %>% rownames_to_column("gene") %>% mutate(gene1 = transId(gene, transTo = "symbol", org = "mouse", unique = T, keepNA = T)$symbol) %>%
+  select(-gene) %>% 
+  select(gene1, everything()) %>% 
+  #drop_na(gene1) %>% 
+  filter(!gene1 %in% cts$gene1[duplicated(cts$gene1)]) %>%
+  column_to_rownames("gene1")
