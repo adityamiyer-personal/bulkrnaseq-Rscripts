@@ -1,3 +1,6 @@
+#Refer these links for more customization:
+#https://nbisweden.github.io/workshop-RNAseq/2111/lab_eda.html#32_Clustering_samples
+
 library(rafalib) #nice plot arrangement
 
 # Load the airway dataset
